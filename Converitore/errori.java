@@ -45,12 +45,35 @@ public class errori extends Application {
 		griglia.setVgap(10);
 
 		Scene scena = new Scene(griglia, 350, 350);
-		finestra.setTitle("Errori");
+		finestra.setTitle("errori");
 		finestra.setScene(scena);
 		finestra.show();
 	}
 
 	private void calcola() {
+		int conta = 0;
+		String s = "";
+		String vett = tbit.getText();
+		String tempi[] = vett.split(" ");
+		int v[] = new int[tempi.length];
+		for (int i = 0; i < v.length; i++) {
+			v[i] = Integer.parseInt(tempi[i]);
+		}
+		for (int i = 0; i < v.length - 1; i++) {
+			s = s + "" + v[i];
+		}
+		if (b1.isSelected()) {
+			for (int i = 0; i < v.length; i++) {
+				if (v[i] == 1) {
+					conta = conta + 1;
+				}
+			}
+			if (conta % 2 == 0) {
+				lris.setText("I bit sono pari " + s);
+			} else {
+				lris.setText("I bit  non sono pari ");
+			}
+		}
 
 	}
 
