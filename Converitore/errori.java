@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 public class errori extends Application {
 	TextField tbit = new TextField();
 	RadioButton b1 = new RadioButton("Bit di parita");
-	RadioButton b2 = new RadioButton();
+	RadioButton b2 = new RadioButton("Hamming");
 	RadioButton b3 = new RadioButton();
 	Label lris = new Label();
 
