@@ -14,7 +14,7 @@ import javafx.stage.Stage;
 public class errori extends Application {
 	TextField tbit = new TextField();
 	RadioButton b1 = new RadioButton("Bit di parita");
-	RadioButton b2 = new RadioButton("Hamming");
+	RadioButton b2 = new RadioButton("Hamming(8 bit)");
 	RadioButton b3 = new RadioButton();
 	Label lris = new Label();
 
@@ -51,28 +51,28 @@ public class errori extends Application {
 	}
 
 	private void calcola() {
-		int conta = 0;
-		String s = "";
-		String vett = tbit.getText();
-		String tempi[] = vett.split(" ");
-		int v[] = new int[tempi.length];
-		for (int i = 0; i < v.length; i++) {
-			v[i] = Integer.parseInt(tempi[i]);
-		}
-		for (int i = 0; i < v.length - 1; i++) {
-			s = s + "" + v[i];
-		}
 		if (b1.isSelected()) {
+			String v[] = tbit.getText().split("");
+			int c = 0;
 			for (int i = 0; i < v.length; i++) {
-				if (v[i] == 1) {
-					conta = conta + 1;
+				if (v[i] == "1") {
+					c++;
 				}
 			}
-			if (conta % 2 == 0) {
-				lris.setText("I bit sono pari " + s);
-			} else {
-				lris.setText("I bit  non sono pari ");
+			String s = "";
+			for (int i = 0; i < v.length; i++) {
+				s = s + v[i];
 			}
+			if (c % 2 == 0) {
+				s = s + "1";
+				lris.setText(s + " (il bit di parità è 1)");
+			} else {
+				s = s + "0";
+				lris.setText(s + " (il bit di parità è 0)");
+			}
+		}
+		if (b2.isSelected()) {
+
 		}
 
 	}
